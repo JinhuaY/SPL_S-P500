@@ -9,7 +9,8 @@ Name of QuantLet: SPL_SP500int_test
 
 Published in: has not been published
 
-Description: 'Applies DW(Durbin Watson) test and Engle''s ARCH test to returns of 10 Internet and Software stocks in S&P500 (time period: 2015/05/01-2016/04/25).'
+Description: 'Applies DW(Durbin Watson) test and Engle''s ARCH test to returns of 10 Internet 
+and Software stocks in S&P500 (time period: 2015/05/01-2016/04/25).'
 
 Keywords: arch, time-series, returns, test, autocorrelation
 
