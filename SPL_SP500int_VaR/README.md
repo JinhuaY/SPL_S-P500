@@ -18,7 +18,7 @@ ARCH effect.'
 Keywords: 'VaR, arma, garch, plot, graphical representation, time-series, volatility, 
 risk measure, portfolio, financial'
 
-See also: SPL_SP500int_tsplot, SPL_SP500in_test
+See also: SPL_SP500int_tsplot, SPL_SP500int_test
 
 Author: Jinhua Yang, Fan Song
 
