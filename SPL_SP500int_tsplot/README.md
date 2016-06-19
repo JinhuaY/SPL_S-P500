@@ -13,7 +13,7 @@ Description: Shows daily returns of 10 Internet and Software stocks in S&P500 fr
 
 Keywords: plot, graphical representation, time-series, portfolio, financial, returns
 
-See also: SPL_SP500int_VaR, SPL_SP500in_test
+See also: SPL_SP500int_VaR, SPL_SP500int_test
 
 Author: Jinhua Yang, Fan Song
 
