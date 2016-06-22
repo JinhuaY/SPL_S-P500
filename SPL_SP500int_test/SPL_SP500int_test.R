@@ -41,7 +41,6 @@ rownames(dwtest) = c("dw_stat", "p_value")
 write.csv(dwtest, "dwtest.csv")
 
 return1 = as.list(return)
-archtest = sapply(return1, ArchTest, lags = 8, demean = TRUE)
 archtest = lapply(return1, ArchTest, lags = 8, demean = TRUE)
 a = as.data.frame(matrix((unlist(archtest)), c(5, 10)))
 LM_test_ARCH = rbind(a[1, ], a[3, ])
