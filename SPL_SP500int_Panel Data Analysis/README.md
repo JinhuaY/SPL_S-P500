@@ -29,8 +29,8 @@ Example: scatterplot of the data and regression results.
 ![Picture1](pooled regression results.png)
 ![Picture1](pooled regression.png)
 ![Picture1](Density of residuals.png)
-![Picture1](Excess market return and excess stock return.png)
 ![Picture1](Q-Q plot.png)
+![Picture1](Excess market return and excess stock return.png)
 
 
 
