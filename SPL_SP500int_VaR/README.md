@@ -20,7 +20,7 @@ risk measure, portfolio, financial'
 
 See also: SPL_SP500int_tsplot, SPL_SP500int_test
 
-Author: Jinhua Yang, Fan Song
+Author: Jinhua Yang, Fan Song, Yue Wang, Wei Zhang
 
 Datafile: data_stock.csv
 
