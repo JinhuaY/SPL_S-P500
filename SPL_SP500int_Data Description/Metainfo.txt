@@ -1,0 +1,9 @@
+Name of QuantLet: SPL_SP500int_Data Description
+Published in: has not been published
+Description: ¡®uses related commands to get data summary, distribution and variances for data of each company, also analyzes the heterogeneity across companies and over time.¡¯
+Keywords: ¡®data description, graphical representation, heterogeneity, return, plot¡¯
+See also: SPL_SP500int_Panel Data Analysis, SPL_SP500int_CAPM Regression
+Author: Wei Zhang, Yue Wang
+Datafile: Panel.csv
+Output: data summary, plots
+Example: data summary and plot of heterogeneity across companies
