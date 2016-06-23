@@ -20,7 +20,7 @@ regression, empirical, CAPM model'
 
 See also: SPL_SP500int_Panel Data Analysis
 
-Author : Zhang, Wei
+Author : Wei Zhang, Yue Wang, Fan Song, Jinhua Yang
 
 Datafile : Panel.csv, Capm1.csv, CAPM.csv
 
