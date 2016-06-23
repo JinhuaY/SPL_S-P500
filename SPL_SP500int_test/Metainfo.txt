@@ -9,7 +9,7 @@ Keywords: arch, time-series, returns, test, autocorrelation
 
 See also: SPL_SP500int_VaR, SPL_SP500in_tsplot
 
-Author: Jinhua Yang, Fan Song
+Author: Jinhua Yang, Fan Song, Wei Zhang, Yue Wang
 
 Datafile: data_stock.csv
 
