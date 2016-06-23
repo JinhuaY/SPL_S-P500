@@ -9,7 +9,7 @@ Keywords: plot, graphical representation, time-series, portfolio, financial, ret
 
 See also: SPL_SP500int_VaR, SPL_SP500int_test
 
-Author: Jinhua Yang, Fan Song
+Author: Jinhua Yang, Fan Song, Yue Wang, Wei Zhang
 
 Datafile: data_stock.csv
 
