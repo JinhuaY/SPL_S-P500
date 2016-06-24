@@ -83,7 +83,8 @@ plot(y_pred, res)
 model2 = lm(res ~ y_pred)
 abline(model2, col = "blue")
 
-# heterogeneity testing install.packages('lmtest') install.packages('zoo')
+# heterogeneity testing 
+#install.packages('lmtest') install.packages('zoo')
 library(zoo)
 library(lmtest)
 bptest(pooling)
