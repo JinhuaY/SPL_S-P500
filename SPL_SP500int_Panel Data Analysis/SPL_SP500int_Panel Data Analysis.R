@@ -68,9 +68,10 @@ coefficients(OLS)
 coefficients(rols)
 stargazer(OLS, rols, title = "regression of standard OLS and robust OLS")
 
-#install.packages("car") # Fixed Effect Regression
-#install.packages("lattice")
 #install.packages("car")
+# Fixed Effect Regression
+#install.packages("lattice")
+
 library(lattice)
 library(car)
 
@@ -101,7 +102,6 @@ summary(fixed)
 stargazer(fixed, title = "Fixed Effects Regression Using plm")
 
 # Comparison of Fixed Effects and OLS
-#install.packages("apsrtable")
 library(apsrtable)
 apsrtable(OLS, fixed.dum, model.names = c("OLS", "Fixed Effects"))
 
