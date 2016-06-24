@@ -160,6 +160,5 @@ phtest(fixed, random)
 
 # Comparison of Random Effects Model and Pooled Regression Model
 plmtest(pooling)
-# In summary, use pooled regression model.
 
 ```
