@@ -25,14 +25,6 @@ Example: plots of daily returns of these 10 stocks
 
 ![Picture1](Google.png) 
 ![Picture1](ebay.png) 
-![Picture1](facebook.png) 
-![Picture1](netflix inc..png) 
-![Picture1](total system service.png)
-![Picture1](verisign inc..png) 
-![Picture1](wester union.png) 
-![Picture1](yahoo.png) 
-![Picture1](Fidelity National Information Service.png) 
-![Picture1](auto data processing.png)
 
 ```r
 
