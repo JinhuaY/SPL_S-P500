@@ -24,7 +24,6 @@ Output: data summary, plots
 Example: data summary and plot of heterogeneity across companies
 
 ```
-![Picture1](data description.png)
 ![Picture1](Relationship between stock return and market return for 10 companies.png)
 ![Picture1](Heterogeineity across companies.png)
 ![Picture1](Heterogeneity across time.png)
