@@ -26,16 +26,8 @@ Example: scatterplot of the data and regression results.
 
 ```
 
-![Picture1](pooled regression results.png)
-![Picture1](pooled regression.png)
-![Picture1](Density of residuals.png)
-![Picture1](Q-Q plot.png)
-![Picture1](Comparison of Robust and OLS.png)
-![Picture1](Fixed Effects Model Regression.png)
-![Picture1](Random Effects Model Regression.png)
-![Picture1](OLS v.s. LSDV.jpg)
-![Picture1](Robust OLS.png)
 
+![Picture1](pooled regression.png)
 
 
 ```r
