@@ -2,18 +2,23 @@
 rm(list = ls(all = TRUE))
 graphics.off()
 
-# set working directory setwd('...')
+# set working directory 
+# setwd('...')
+
+# Install packages if not installed
+libraries = c("Formula", "plm", "stargazer", "lmtest", "zoo", "MASS","apsrtable"
+              , "car", "lattice")
+lapply(libraries, function(x) if (!(x %in% installed.packages())) {
+  install.packages(x)
+})
+
+# Load packages
+lapply(libraries, library, quietly = TRUE, character.only = TRUE)
+
 
 # Panel Data Analysis
 
 # Pooled Regression Model
-
-# regression
-
-# install.packages('Formula') install.packages('plm') install.packages('stargazer')
-library(Formula)
-library(plm)
-library(stargazer)
 Paneldata = read.csv("Panel.csv")
 Ri = Paneldata$Ri
 Rm = Paneldata$Rm
@@ -27,7 +32,6 @@ model = lm(Ri ~ Rm)
 abline(model, col = "red")
 
 # Residual Analysis Empirical Density of Residuals
-
 res = pooling$resid
 dens_res = density(res)
 plot(dens_res)
@@ -47,34 +51,23 @@ plot(y_pred, res)
 model2 = lm(res ~ y_pred)
 abline(model2, col = "blue")
 
-# heterogeneity testing install.packages('lmtest') install.packages('zoo')
-library(zoo)
-library(lmtest)
+# heterogeneity testing
 bptest(pooling)
 
 # serial correlation testing
 pbgtest(pooling)
 
-# Use Robust Regression install.packages(('MASS'))
-library(MASS)
+# Use Robust Regression
 rols = rlm(Ri ~ Rm)
 summary(rols)
 stargazer(rols, title = "Robust OLS Results", align = TRUE)
 
-# install.packages('apsrtable')
-library(apsrtable)
 OLS = lm(Ri ~ Rm)
 coefficients(OLS)
 coefficients(rols)
 stargazer(OLS, rols, title = "regression of standard OLS and robust OLS")
 
-#install.packages("car")
 # Fixed Effect Regression
-#install.packages("lattice")
-
-library(lattice)
-library(car)
-
 com = factor(Paneldata$company)
 xyplot(Ri ~ Rm | com, data = Paneldata, layout = c(10, 1), xlab = "market return", 
     ylab = "stock return", main = "stock return and market return")
@@ -96,13 +89,11 @@ scatterplot(yhat ~ Rm | Paneldata$company, boxplots = FALSE, xlab = "Market pric
 abline(lm(Ri ~ Rm), lwd = 3, col = "Dark Blue")
 
 # Using plm
-library(plm)
 fixed = plm(Ri ~ Rm, data = Paneldata, index = c("company", "date"), model = "within")
 summary(fixed)
 stargazer(fixed, title = "Fixed Effects Regression Using plm")
 
 # Comparison of Fixed Effects and OLS
-library(apsrtable)
 apsrtable(OLS, fixed.dum, model.names = c("OLS", "Fixed Effects"))
 
 # Testing for Fixed Effects
