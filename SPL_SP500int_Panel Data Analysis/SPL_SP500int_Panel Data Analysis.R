@@ -70,11 +70,11 @@ stargazer(OLS, rols, title = "regression of standard OLS and robust OLS")
 # Fixed Effect Regression
 com = factor(Paneldata$company)
 xyplot(Ri ~ Rm | com, data = Paneldata, layout = c(10, 1), xlab = "market return", 
-    ylab = "stock return", main = "stock return and market return")
+       ylab = "stock return", main = "stock return and market return")
 xyplot(Ri ~ Rm | com, data = Paneldata, panel = function(x, y) {
-    panel.xyplot(x, y)
-    panel.abline(h = median(y), lty = 2, col = "gray")
-    panel.lmline(x, y, col = "red")
+  panel.xyplot(x, y)
+  panel.abline(h = median(y), lty = 2, col = "gray")
+  panel.lmline(x, y, col = "red")
 }, xlab = "market return", ylab = "stock return", main = "relationship between market return and stock return")
 
 fixed.dum = lm(Ri ~ Rm + factor(com) - 1, data = Paneldata)
@@ -83,9 +83,8 @@ stargazer((fixed.dum), title = "Fixed Effects Regression Using Dummy Variables")
 
 # Significance of Fixed Effects
 yhat = fixed.dum$fitted.values
-library(car)
 scatterplot(yhat ~ Rm | Paneldata$company, boxplots = FALSE, xlab = "Market price", 
-    ylab = "yhat", smooth = FALSE)
+            ylab = "yhat", smooth = FALSE)
 abline(lm(Ri ~ Rm), lwd = 3, col = "Dark Blue")
 
 # Using plm
@@ -110,4 +109,4 @@ phtest(fixed, random)
 
 # Comparison of Random Effects Model and Pooled Regression Model
 plmtest(pooling)
-# In summary, use pooled regression model.
+
