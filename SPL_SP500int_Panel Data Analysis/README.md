@@ -13,7 +13,7 @@ in which direction the return of stocks in internet and software industry moves 
 to the whole market, and tests whether the error term has heterogeneous variance and serial 
 correlations. Uses robust variance and run the regression again.'
 
-Keywords : financial, returns, regression, empirical, panel-analysis 
+Keywords: financial, returns, regression, empirical, panel-analysis 
 
 See also: SPL_SP500int_Data Description, SPL_SP500int_CAPM Regression
 
