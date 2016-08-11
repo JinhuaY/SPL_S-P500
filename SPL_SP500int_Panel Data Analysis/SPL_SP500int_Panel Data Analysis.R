@@ -6,7 +6,7 @@ graphics.off()
 # setwd('...')
 
 # Install packages if not installed
-libraries = c("Formula", "plm", "stargazer", "lmtest", "zoo", "MASS","apsrtable"
+libraries = c("Formula", "plm", "stargazer", "lmtest", "zoo", "MASS", "apsrtable"
               , "car", "lattice")
 lapply(libraries, function(x) if (!(x %in% installed.packages())) {
   install.packages(x)
