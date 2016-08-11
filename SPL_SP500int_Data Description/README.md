@@ -6,7 +6,7 @@
 
 Name of QuantLet: SPL_SP500int_Data Description
 
-Published in: Github
+Published in: GitHub
 
 Description: 'uses related commands to get data summary, distribution and variances for data 
 of each company, also analyzes the heterogeneity across companies and over time.'
