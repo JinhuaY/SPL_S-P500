@@ -5,6 +5,15 @@ graphics.off()
 # set working directory
 #setwd("...")
 
+# Install packages if not installed
+libraries = c("tseries", "zoo", "FinTS", "zoo", "lmtest")
+lapply(libraries, function(x) if (!(x %in% installed.packages())) {
+  install.packages(x)
+})
+
+# Load packages
+lapply(libraries, library, quietly = TRUE, character.only = TRUE)
+
 # import data
 stock = as.data.frame(read.csv("data_stock.csv", header = T, sep = ","))
 
@@ -18,13 +27,6 @@ return = log(price[2, ]/price[1, ])
 for (j in 2:(T - 1)) {
     return[j, ] = log(price[j + 1, ]/price[j, ])
 }
-
-# install.packages('tseries') install.packages('zoo') install.packages('FinTS')
-# install.packages('lmtest')
-library("tseries")
-library(zoo)
-library(FinTS)
-library(lmtest)
 
 pvalue_dwtest = matrix(rep(0), ncol = 10)
 dw_stat = matrix(rep(0), ncol = 10)
