@@ -7,13 +7,13 @@
 
 Name of QuantLet: SPL_SP500int_CAPM Regression 
 
-Published in: has not been pulished
+Published in: Github
 
-Description: 'regress average excess stock return on average excess market return 
-(Data: price of 10 Internet and Software stocks in S&P500 and S&P500 index, time 
-period: 2015/05/01-2016/04/25) using seemingly unrelated regression and test whether
-the intercepts are jointly zeros to figure out whether CAPM model is fitted in our
-situation.'
+Description: 'regresses average excess stock return on average excess market 
+return (Data: price of 10 Internet and Software stocks in S&P500 and S&P500 
+index, time period: 2015/05/01-2016/04/25) using seemingly unrelated regression 
+and tests whether the intercepts are jointly zeros so as to figure out whether 
+CAPM model is fitted in our situation.'
 
 Keywords : 'financial, portfolio, simulation, returns, estimation, asset, 
 regression, empirical, CAPM model' 
@@ -37,6 +37,15 @@ graphics.off()
 #set working directory
 #setwd("...")
 
+# Install packages if not installed
+libraries = c("stargazer", "gplots", "lattice", "zoo", "car", "Matrix", "lmtest", "systemfit")
+lapply(libraries, function(x) if (!(x %in% installed.packages())) {
+    install.packages(x)
+})
+
+# Load packages
+lapply(libraries, library, quietly = TRUE, character.only = TRUE)
+
 #read data
 Paneldata = read.csv("Panel.csv")
 Ri = Paneldata$Ri
@@ -44,23 +53,6 @@ Rm = Paneldata$Rm
 com = factor(Paneldata$company)
 summary(Paneldata$Ri)
 summary(Paneldata$Rm)
-
-#install.packages("stargazer")
-#install.packages("gplots")
-#install.packages("lattice")
-#install.packages("zoo")
-#install.packages("car")
-#install.packages("Matrix")
-#install.packages("lmtest")
-#install.packages("systemfit")
-library("stargazer")
-library("gplots")
-library("lattice")
-library("zoo")
-library("car")
-library("Matrix")
-library("lmtest")
-library("systemfit")
 
 # Seemingly Unrelated Regression for CAPM
 Capm = read.csv("CAPM.csv")
