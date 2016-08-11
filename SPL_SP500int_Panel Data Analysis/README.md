@@ -6,7 +6,7 @@
 
 Name of QuantLet: SPL_SP500int_Panel Data Analysis
 
-Published in: Github
+Published in: GitHub
 
 Description: 'Runs pooled regression of stock returns on the market return in order to see 
 in which direction the return of stocks in internet and software industry moves with respect 
