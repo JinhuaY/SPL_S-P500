@@ -1,7 +1,7 @@
 
 Name of QuantLet: SPL_SP500int_tsplot
 
-Published in: has not been published
+Published in: GitHub
 
 Description: Shows daily returns of 10 Internet and Software stocks in S&P500 from 2015/05/01 to 2016/04/25.
 
