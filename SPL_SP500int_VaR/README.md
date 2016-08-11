@@ -5,15 +5,15 @@
 
 ```yaml
 
+
 Name of QuantLet: SPL_SP500int_VaR
 
-Published in: has not been published
+Published in: Github
 
-Description: 'Uses DCC model to estimate the variance covariance matrix of returns of 
-10 Internet and Software stocks in S&P500 (time period: 2015/05/01-2016/04/25, rolling 
-window: 200 days), computes 95% and 99% VaR of a price weighed portfolio containing 
-these stocks from estimation results. Assumes that every stock has autocorrelation and 
-ARCH effect.'
+Description: 'Uses DCC model to estimate the variance covariance matrix of returns of 10 
+Internet and Software stocks in S&P500 (time period: 2015/05/01-2016/04/25, rolling window: 
+200 days), computes 95% and 99% VaR of a price weighed portfolio containing these stocks from 
+estimation results. Assumes that every stock has autocorrelation and ARCH effect.'
 
 Keywords: 'VaR, arma, garch, plot, graphical representation, time-series, volatility, 
 risk measure, portfolio, financial'
@@ -33,12 +33,22 @@ Example: The plot illustrates the portfolio profit and loss (P&L) and estimated 
 ![Picture1](P&L_VaR.png)
 
 ```r
+
 # clear history
 rm(list = ls(all = TRUE))
 graphics.off()
 
 # set working directory
 #setwd("...")
+
+# Install packages if not installed
+libraries = c("tseries", "ccgarch")
+lapply(libraries, function(x) if (!(x %in% installed.packages())) {
+  install.packages(x)
+})
+
+# Load packages
+lapply(libraries, library, quietly = TRUE, character.only = TRUE)
 
 # import data
 stock = as.data.frame(read.csv("data_stock.csv", header = T, sep = ","))
@@ -54,10 +64,6 @@ for (j in 2:(T - 1)) {
     return[j, ] = log(price[j + 1, ]/price[j, ])
 }
 
-# install.packages('ccgarch') install.packages('tseries')
-library("tseries")
-library("ccgarch")
-
 # define portfolio: a value weighted portfolio containing one unit of each stock
 W = matrix(unlist(price[1, ]/value[1, ]), nrow = n, ncol = 1)
 alpha95 = 1.65
@@ -68,14 +74,14 @@ alpha99 = 2.33
 
 t = 200
 
-VaR95 = matrix(, nrow = T - t, ncol = 1)
-VaR99 = matrix(, nrow = T - t, ncol = 1)
+VaR95 = matrix(0, nrow = T - t, ncol = 1)
+VaR99 = matrix(0, nrow = T - t, ncol = 1)
 
 for (j in 1:(T - t)) {
     
     ts = return[j:(j + t - 1), ]
     
-    residual = matrix(, nrow = t, ncol = n)
+    residual = matrix(0, nrow = t, ncol = n)
     
     for (i in 1:n) {
         residual[, i] = matrix(residuals(arma(ts[, i], order = c(1, 0))))
@@ -83,7 +89,7 @@ for (j in 1:(T - t)) {
     
     residual = residual[-1, ]
     
-    coef = matrix(, nrow = n, ncol = 3)
+    coef = matrix(0, nrow = n, ncol = 3)
     
     # initial GARCH model estimation
     for (i in 1:10) {
@@ -114,7 +120,6 @@ VaR = cbind(VaR95, VaR99)
 # profit&loss
 value = matrix(value, nrow = T)
 PL = value[(t + 1):T, ] - value[t:(T - 1), ]
-
 
 bt = cbind(PL, -VaR)
 colnames(bt) = c("PL", "95%VaR", "99%VaR")
