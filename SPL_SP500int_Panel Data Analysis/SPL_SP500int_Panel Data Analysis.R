@@ -31,42 +31,6 @@ plot(Ri ~ Rm, data = Paneldata, main = "relationship between market return and s
 model = lm(Ri ~ Rm)
 abline(model, col = "red")
 
-# Residual Analysis Empirical Density of Residuals
-res = pooling$resid
-dens_res = density(res)
-plot(dens_res)
-plot(res, ylab = "residuals(pooling)")
-qqnorm(res)
-qqline(res)
-# normality assumption is satiesfied
-
-# Residuals and Explanatory Variable
-par(mfrow = c(1, 1))
-plot(Paneldata$Rm, res)
-model1 = lm(res ~ Paneldata$Rm)
-abline(model1, col = "red")
-
-y_pred = predict(pooling)
-plot(y_pred, res)
-model2 = lm(res ~ y_pred)
-abline(model2, col = "blue")
-
-# heterogeneity testing
-bptest(pooling)
-
-# serial correlation testing
-pbgtest(pooling)
-
-# Use Robust Regression
-rols = rlm(Ri ~ Rm)
-summary(rols)
-stargazer(rols, title = "Robust OLS Results", align = TRUE)
-
-OLS = lm(Ri ~ Rm)
-coefficients(OLS)
-coefficients(rols)
-stargazer(OLS, rols, title = "regression of standard OLS and robust OLS")
-
 # Fixed Effect Regression
 com = factor(Paneldata$company)
 xyplot(Ri ~ Rm | com, data = Paneldata, layout = c(10, 1), xlab = "market return", 
@@ -77,11 +41,10 @@ xyplot(Ri ~ Rm | com, data = Paneldata, panel = function(x, y) {
   panel.lmline(x, y, col = "red")
 }, xlab = "market return", ylab = "stock return", main = "relationship between market return and stock return")
 
+#Using Dummy Variables
 fixed.dum = lm(Ri ~ Rm + factor(com) - 1, data = Paneldata)
 summary(fixed.dum)
 stargazer((fixed.dum), title = "Fixed Effects Regression Using Dummy Variables")
-
-# Significance of Fixed Effects
 yhat = fixed.dum$fitted.values
 scatterplot(yhat ~ Rm | Paneldata$company, boxplots = FALSE, xlab = "Market price", 
             ylab = "yhat", smooth = FALSE)
@@ -96,7 +59,7 @@ stargazer(fixed, title = "Fixed Effects Regression Using plm")
 apsrtable(OLS, fixed.dum, model.names = c("OLS", "Fixed Effects"))
 
 # Testing for Fixed Effects
-test_fixed = pFtest(fixed, pool)
+test_fixed = pFtest(fixed, pooling)
 stargazer(test_fixed)
 
 # Random Effect Regression
@@ -104,9 +67,9 @@ random = plm(Ri ~ Rm, data = Paneldata, index = c("company", "date"), model = "r
 summary(random)
 stargazer((random), title = "Random Effects Regression")
 
-# Test for the Difference between Fixed Effect Model and Random Effect Model
+# Test for the Difference between Fixed Effect Model and Random Effect Model (Hausman test)
 phtest(fixed, random)
 
-# Comparison of Random Effects Model and Pooled Regression Model
+# Comparison of Random Effects Model and Pooled Regression Model (LM test)
 plmtest(pooling)
 
