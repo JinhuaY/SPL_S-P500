@@ -1,7 +1,7 @@
 
 Name of QuantLet: SPL_SP500int_test
 
-Published in: has not been published
+Published in: GitHub
 
 Description: 'Applies DW(Durbin Watson) test and Engle''s ARCH test to returns of 10 Internet and Software stocks in S&P500 (time period: 2015/05/01-2016/04/25).'
 
