@@ -8,7 +8,7 @@
 
 Name of QuantLet: SPL_SP500int_VaR
 
-Published in: Github
+Published in: GitHub
 
 Description: 'Uses DCC model to estimate the variance covariance matrix of returns of 10 
 Internet and Software stocks in S&P500 (time period: 2015/05/01-2016/04/25, rolling window: 
