@@ -23,8 +23,8 @@ Example: plots of daily returns of these 10 stocks
 
 ```
 
-![Picture1](Google.png) 
-![Picture1](ebay.png) 
+![Picture1](google.png) 
+![Picture1](eBay.png) 
 
 ```r
 
