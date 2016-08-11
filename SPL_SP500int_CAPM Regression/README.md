@@ -9,14 +9,13 @@ Name of QuantLet: SPL_SP500int_CAPM Regression
 
 Published in: Github
 
-Description: 'regresses average excess stock return on average excess market 
-return (Data: price of 10 Internet and Software stocks in S&P500 and S&P500 
-index, time period: 2015/05/01-2016/04/25) using seemingly unrelated regression 
-and tests whether the intercepts are jointly zeros so as to figure out whether 
-CAPM model is fitted in our situation.'
+Description: 'regresses average excess stock return on average excess market return (Data: price 
+of 10 Internet and Software stocks in S&P500 and S&P500 index, time period: 2015/05/01-2016/04/25) 
+using seemingly unrelated regression and tests whether the intercepts are jointly zeros so as to 
+figure out whether CAPM model is fitted in our situation.'
 
-Keywords : 'financial, portfolio, simulation, returns, estimation, asset, 
-regression, empirical, CAPM model' 
+Keywords : 'financial, portfolio, simulation, returns, estimation, asset, regression, empirical, 
+CAPM model' 
 
 See also: SPL_SP500int_Panel Data Analysis
 
