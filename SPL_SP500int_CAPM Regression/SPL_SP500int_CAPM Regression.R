@@ -5,6 +5,15 @@ graphics.off()
 #set working directory
 #setwd("...")
 
+# Install packages if not installed
+libraries = c("stargazer", "gplots", "lattice", "zoo", "car", "Matrix", "lmtest", "systemfit")
+lapply(libraries, function(x) if (!(x %in% installed.packages())) {
+    install.packages(x)
+})
+
+# Load packages
+lapply(libraries, library, quietly = TRUE, character.only = TRUE)
+
 #read data
 Paneldata = read.csv("Panel.csv")
 Ri = Paneldata$Ri
@@ -12,23 +21,6 @@ Rm = Paneldata$Rm
 com = factor(Paneldata$company)
 summary(Paneldata$Ri)
 summary(Paneldata$Rm)
-
-#install.packages("stargazer")
-#install.packages("gplots")
-#install.packages("lattice")
-#install.packages("zoo")
-#install.packages("car")
-#install.packages("Matrix")
-#install.packages("lmtest")
-#install.packages("systemfit")
-library("stargazer")
-library("gplots")
-library("lattice")
-library("zoo")
-library("car")
-library("Matrix")
-library("lmtest")
-library("systemfit")
 
 # Seemingly Unrelated Regression for CAPM
 Capm = read.csv("CAPM.csv")
