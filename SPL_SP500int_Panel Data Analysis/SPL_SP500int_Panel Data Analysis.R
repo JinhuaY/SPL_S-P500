@@ -55,9 +55,6 @@ fixed = plm(Ri ~ Rm, data = Paneldata, index = c("company", "date"), model = "wi
 summary(fixed)
 stargazer(fixed, title = "Fixed Effects Regression Using plm")
 
-# Comparison of Fixed Effects and OLS
-apsrtable(OLS, fixed.dum, model.names = c("OLS", "Fixed Effects"))
-
 # Testing for Fixed Effects
 test_fixed = pFtest(fixed, pooling)
 stargazer(test_fixed)
