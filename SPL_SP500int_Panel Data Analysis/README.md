@@ -30,6 +30,8 @@ Example: scatterplot of the data and regression results.
 
 ![Picture1](relationship1.png)
 ![Picture1](relationship2.png)
+![Picture1](Fixed effects regression vs. Pooling regression.png)
+
 
 
 ```r
@@ -82,8 +84,9 @@ fixed.dum = lm(Ri ~ Rm + factor(com) - 1, data = Paneldata)
 summary(fixed.dum)
 stargazer((fixed.dum), title = "Fixed Effects Regression Using Dummy Variables")
 yhat = fixed.dum$fitted.values
-scatterplot(yhat ~ Rm | Paneldata$company, boxplots = FALSE, xlab = "Market price", 
-            ylab = "yhat", smooth = FALSE)
+scatterplot(yhat ~ Rm | Paneldata$company, boxplots = FALSE, xlab = "Market price", ylab = "yhat", legend.plot = FALSE, 
+    main="Fixed effects regression vs. Pooling Regression", 
+    smooth = FALSE)
 abline(lm(Ri ~ Rm), lwd = 3, col = "Dark Blue")
 
 # Using plm
