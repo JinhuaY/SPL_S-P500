@@ -87,6 +87,8 @@ PL = value[(t + 1):T, ] - value[t:(T - 1), ]
 
 bt = cbind(PL, -VaR)
 colnames(bt) = c("PL", "95%VaR", "99%VaR")
-matplot(c(1:(T - t)), bt[, 1:3], type = "l", xlab = "time", ylab = "P&L")
+matplot(c(1:(T - t)), bt[, 1:3], type = "l", xlab = "time", ylab = "P&L", xaxt = "n")
 legend("topright", colnames(bt)[-1], lwd = 1, col = 2:3, cex = 0.75)
 title("Portfolio P&L and estimated VaR")
+axis(1, at = c(1:(T - t)), las = 0)
+
