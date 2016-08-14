@@ -33,8 +33,6 @@ abline(model, col = "red")
 
 # Fixed Effect Regression
 com = factor(Paneldata$company)
-xyplot(Ri ~ Rm | com, data = Paneldata, layout = c(10, 1), xlab = "market return", 
-       ylab = "stock return", main = "stock return and market return")
 xyplot(Ri ~ Rm | com, data = Paneldata, panel = function(x, y) {
   panel.xyplot(x, y)
   panel.abline(h = median(y), lty = 2, col = "gray")
