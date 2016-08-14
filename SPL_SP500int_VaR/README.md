@@ -30,7 +30,7 @@ Example: The plot illustrates the portfolio profit and loss (P&L) and estimated 
 
 ```
 
-![Picture1](P&L_VaR.png)
+![Picture1](p&l_VaR.png)
 
 ```r
 
